@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "SPQR";
+}
+<br />
+<div class="row">
+    <div class="col-lg-8" style="font-family: 'Underdog', cursive;">
+        <h3 style="padding-top: 10%">
+            Шифр Цезаря, также известный как шифр сдвига, код Цезаря или сдвиг Цезаря — один из самых простых и наиболее широко известных методов шифрования.</h3>
+
+           <h5> Шифр Цезаря — это вид шифра подстановки, в котором каждый символ в открытом тексте заменяется символом, находящимся на некотором постоянном числе позиций левее или правее него в алфавите. Например, в шифре со сдвигом вправо на 3, А была бы заменена на Г, Б станет Д, и так далее.
+
+            Шифр назван в честь римского полководца Гая Юлия Цезаря, использовавшего его для секретной переписки со своими генералами.
+
+            Вы можете почувствовать себя великим императором Рима и зашифровать своё послание! Вставьте текст в поле для ввода или выберете файл с текстом.
+
+            Здесь же его можно расшифровать. Если ключ не известен, то можно воспользоваться автоматическим подбором ключа. </h5>
+
+            <h4>Обратите внимание, что функция автоматического подбора ключа реализована на основе частотного анализа, поэтому может не работать
+            при слишком маленьких посланиях!
+        </h4>
+    </div>
+    <div class="col-lg-4">
+        <img src="~/pic/Julius_Caesar_render.png" style="padding-top: 15%; height: 90%; width: auto"  />
+    </div>
+</div>
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row upload-row " style="font-family: 'Underdog', cursive;">
+        <div class="col-lg-6 upload-part">
+            <textarea rows="4" cols="50" class="upload-text" name="uploadtext"></textarea>
+            <div class="w-100"></div>
+            <input type="file" name="uploadFile" accept="text/plain, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+        </div>
+        <div class="col-lg-1 slider-wrapper">
+            <input type="range" min="-33" max="33" value="0" step="1" class="range" name="range" oninput="rangeLabel.value = range.value"/>
+        </div>
+        <div class="col-lg-2 align-middle justify-content-center" style="padding-top: 45px">
+            <output id="rangeLabel" style="padding-top: 15px; font-size: 25px;">0</output>
+        </div>
+        <div class="col-lg-3 upload-buttons">
+            <input type="submit" class="action" value="encrypt" name="acionButton" />
+            <div class="w-100"></div>
+            <input type="submit" class="action" value="decrypt with key" name="acionButton" />
+            <div class="w-100"></div>
+            <input type="submit" class="action" value="decrypt without key" name="acionButton" />
+        </div>
+    </div>
+}
+
+

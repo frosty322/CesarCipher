@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Result";
+}
+
+<div style="padding-top: 6%">
+
+    @using (Html.BeginForm("Download", "Home", FormMethod.Post))
+    {
+        <h3>Наиболее вероятный результат</h3>
+        <p>Ключ: @ViewBag.index[0]. Текст: @ViewBag.text[0]</p>
+        <input name="text" type="hidden" value="@ViewBag.text[0]" />
+        <button type="submit" class="btn btn-success">download</button>
+    }
+    <h3>Другие варианты:</h3>
+    @for (int i = 1; i < 33; i++)
+    {
+        using (Html.BeginForm("Download", "Home", FormMethod.Post))
+        {
+
+
+            <p>Ключ: @ViewBag.index[i]. Текст: @ViewBag.text[i]</p>
+            <br />
+            <input name="text" type="hidden" value="@ViewBag.text[i]" />
+            <button type="submit" class="btn btn-success">download</button>
+
+        }
+    }
+
+</div>

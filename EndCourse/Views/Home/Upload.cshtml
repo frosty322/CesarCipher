@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+}
+<div style="padding-top: 6%">
+    <h3>Результат</h3>
+<p >@ViewData["text"]</p>
+    @using (Html.BeginForm("Download", "Home", FormMethod.Post))
+    {
+        <input name="text" type="hidden" value="@ViewData["text"]"/>
+        <button type="submit" class="btn btn-success">download</button>
+    }
+</div>

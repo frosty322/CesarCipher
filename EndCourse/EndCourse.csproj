@@ -1,0 +1,934 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E10FDC8-8459-4509-A1DF-1852969BA99A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EndCourse</RootNamespace>
+    <AssemblyName>EndCourse</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.1.0.145, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.1.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CesarCipher.cs" />
+    <Compile Include="Models\download.cs" />
+    <Compile Include="Models\Key.cs" />
+    <Compile Include="Models\ReadingFromText.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest\obj\Debug\netcoreapp2.1\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="UnitTest\obj\Debug\netcoreapp2.1\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="UnitTest\obj\Debug\netcoreapp2.1\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="UnitTest\obj\Debug\netcoreapp2.1\UnitTest.AssemblyInfo.cs" />
+    <Compile Include="UnitTest\obj\Debug\netcoreapp2.1\UnitTest.Program.cs" />
+    <Compile Include="UnitTest\obj\Release\netcoreapp2.1\UnitTest.AssemblyInfo.cs" />
+    <Compile Include="UnitTest\obj\Release\netcoreapp2.1\UnitTest.Program.cs" />
+    <Compile Include="UnitTest\Test\obj\Debug\netcoreapp2.1\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="UnitTest\Test\obj\Debug\netcoreapp2.1\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="UnitTest\Test\obj\Debug\netcoreapp2.1\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="UnitTest\Test\obj\Debug\netcoreapp2.1\Test.AssemblyInfo.cs" />
+    <Compile Include="UnitTest\Test\obj\Debug\netcoreapp2.1\Test.Program.cs" />
+    <Compile Include="UnitTest\Test\obj\Release\netcoreapp2.1\Test.AssemblyInfo.cs" />
+    <Compile Include="UnitTest\Test\obj\Release\netcoreapp2.1\Test.Program.cs" />
+    <Compile Include="UnitTest\Test\UnitTest1.cs" />
+    <Compile Include="UnitTest\UnitTest1.cs" />
+    <Compile Include="UnitTest\UnitTestProject\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="UnitTest\UnitTestProject\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="UnitTest\UnitTestProject\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="UnitTest\UnitTestProject\Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest\UnitTestProject\UnitTest1.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.AssemblyInfo.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.Program.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Release\netcoreapp2.1\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Release\netcoreapp2.1\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Release\netcoreapp2.1\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Release\netcoreapp2.1\UnitTests.AssemblyInfo.cs" />
+    <Compile Include="UnitTest\UnitTests\obj\Release\netcoreapp2.1\UnitTests.Program.cs" />
+    <Compile Include="UnitTest\UnitTests\UnitTest1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="pic\Julius_Caesar_render.png" />
+    <Content Include="pic\mail.png" />
+    <Content Include="pic\vk.png" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="UnitTest\.gitattributes" />
+    <Content Include="UnitTest\.gitignore" />
+    <Content Include="UnitTest\.git\ms-persist.xml" />
+    <Content Include="UnitTest\EndCourse.sln" />
+    <Content Include="UnitTest\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
+    <Content Include="UnitTest\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap-grid.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap-grid.min.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap-reboot.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap-reboot.min.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap.min.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Scripts\bootstrap.bundle.js" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Scripts\bootstrap.bundle.min.js" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Scripts\bootstrap.js" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Scripts\bootstrap.min.js" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap-grid.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap-grid.min.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap-reboot.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap-reboot.min.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap.min.css" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Scripts\bootstrap.bundle.js" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Scripts\bootstrap.bundle.min.js" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Scripts\bootstrap.js" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Scripts\bootstrap.min.js" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\LICENSE.txt" />
+    <None Include="UnitTest\packages\jQuery.3.3.1\Content\Scripts\jquery-3.3.1-vsdoc.js" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\Content\Scripts\jquery-3.3.1.js" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\Content\Scripts\jquery-3.3.1.min.js" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\Content\Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\Content\Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="UnitTest\packages\jQuery.3.3.1\Tools\jquery-3.3.1.intellisense.js" />
+    <None Include="UnitTest\packages\jQuery.Validation.1.17.0\Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="UnitTest\packages\jQuery.Validation.1.17.0\Content\Scripts\jquery.validate.js" />
+    <Content Include="UnitTest\packages\jQuery.Validation.1.17.0\Content\Scripts\jquery.validate.min.js" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\ru\System.Web.Mvc.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\ru\System.Web.Mvc.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.ru.5.2.7\lib\net45\ru\System.Web.Mvc.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.ru.5.2.7\lib\net45\ru\System.Web.Mvc.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\ru\System.Web.Razor.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\ru\system.web.razor.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.ru.3.2.7\lib\net45\ru\System.Web.Razor.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.ru.3.2.7\lib\net45\ru\system.web.razor.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\ru\System.Web.Optimization.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\system.web.optimization.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Web.Optimization.ru.1.1.3\lib\net40\ru\System.Web.Optimization.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\ru\System.Web.Helpers.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\ru\system.web.helpers.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\ru\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\ru\system.web.webpages.deployment.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\ru\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\ru\system.web.webpages.razor.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\ru\System.Web.WebPages.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\ru\system.web.webpages.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\lib\net45\ru\System.Web.Helpers.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\lib\net45\ru\system.web.helpers.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\lib\net45\ru\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\lib\net45\ru\system.web.webpages.deployment.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\lib\net45\ru\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\lib\net45\ru\system.web.webpages.razor.xml" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\lib\net45\ru\System.Web.WebPages.resources.dll" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\lib\net45\ru\system.web.webpages.xml" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.exe" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.AppContext.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Collections.Immutable.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Diagnostics.StackTrace.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Reflection.Metadata.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Win32.Primitives.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.AppContext.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Collections.Immutable.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Console.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.StackTrace.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Globalization.Calendars.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.ZipFile.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Http.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Sockets.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Reflection.Metadata.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Text.Encoding.CodePages.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.ValueTuple.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.ReaderWriter.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XmlDocument.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.XDocument.dll" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe" />
+    <Content Include="UnitTest\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="UnitTest\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="UnitTest\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll" />
+    <Content Include="UnitTest\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="UnitTest\packages\Modernizr.2.8.3\Content\Scripts\modernizr-2.8.3.js" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\netcoreapp1.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\uap10.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\cs\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\cs\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\de\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\de\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\de\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\fr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\fr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\it\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\it\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\it\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\ja\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\ja\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\ko\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\ko\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\pl\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\pl\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\pt\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\pt\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\tr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\tr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hant\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hant\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net20\Newtonsoft.Json.pdb" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net35\Newtonsoft.Json.pdb" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net40\Newtonsoft.Json.pdb" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.pdb" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\netstandard1.0\Newtonsoft.Json.pdb" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\netstandard1.3\Newtonsoft.Json.pdb" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.pdb" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.pdb" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.pdb" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\net40\NPOI.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\net40\NPOI.OOXML.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\net40\NPOI.OpenXml4Net.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\net40\NPOI.OpenXmlFormats.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\net45\NPOI.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\net45\NPOI.OOXML.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXml4Net.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXmlFormats.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\netstandard2.0\NPOI.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\netstandard2.0\NPOI.OOXML.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\netstandard2.0\NPOI.OpenXml4Net.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\netstandard2.0\NPOI.OpenXmlFormats.dll" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\NPOI.xml" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\logo\120_120.jpg" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\logo\240_240.png" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\logo\32_32.jpg" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\logo\60_60.jpg" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\Read Me.txt" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\esm\popper-utils.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\esm\popper-utils.min.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\esm\popper.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\esm\popper.min.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\popper-utils.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\popper-utils.min.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\popper.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\popper.min.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\umd\popper-utils.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\umd\popper-utils.min.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\umd\popper.js" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\umd\popper.min.js" />
+    <Content Include="UnitTest\packages\SharpZipLib.1.1.0\lib\net45\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="UnitTest\packages\SharpZipLib.1.1.0\lib\net45\ICSharpCode.SharpZipLib.pdb" />
+    <Content Include="UnitTest\packages\SharpZipLib.1.1.0\lib\net45\ICSharpCode.SharpZipLib.xml" />
+    <Content Include="UnitTest\packages\SharpZipLib.1.1.0\lib\netstandard2.0\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="UnitTest\packages\SharpZipLib.1.1.0\lib\netstandard2.0\ICSharpCode.SharpZipLib.pdb" />
+    <Content Include="UnitTest\packages\SharpZipLib.1.1.0\lib\netstandard2.0\ICSharpCode.SharpZipLib.xml" />
+    <Content Include="UnitTest\packages\WebGrease.1.6.0\lib\WebGrease.dll" />
+    <Content Include="UnitTest\packages\WebGrease.1.6.0\tools\WG.EXE" />
+    <Content Include="UnitTest\Test\Test.csproj" />
+    <Content Include="UnitTest\UnitTest.csproj" />
+    <Content Include="UnitTest\UnitTestProject\UnitTestProject.csproj" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\EndCourse.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\EndCourse.pdb" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\Mono.Cecil.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\NPOI.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\NPOI.OOXML.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\NPOI.OpenXml4Net.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\NPOI.OpenXmlFormats.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\ru\System.Web.Mvc.resources.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\ru\System.Web.Optimization.resources.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\ru\System.Web.Razor.resources.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\ru\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\ru\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\ru\System.Web.WebPages.resources.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.Mvc.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.Mvc.xml" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.Optimization.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.Optimization.xml" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.Razor.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.Razor.xml" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.WebPages.Deployment.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.WebPages.Deployment.xml" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.WebPages.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.WebPages.Razor.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.WebPages.Razor.xml" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\System.Web.WebPages.xml" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\UnitTests.dll" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\UnitTests.pdb" />
+    <Content Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.csproj.FileListAbsolute.txt" />
+    <Content Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.dll" />
+    <Content Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.pdb" />
+    <Content Include="UnitTest\UnitTests\UnitTests.csproj" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\Upload.cshtml" />
+    <Content Include="Views\Home\Result.cshtml" />
+    <Content Include="UnitTest\.git\COMMIT_EDITMSG" />
+    <Content Include="UnitTest\.git\config" />
+    <Content Include="UnitTest\.git\description" />
+    <Content Include="UnitTest\.git\FETCH_HEAD" />
+    <Content Include="UnitTest\.git\HEAD" />
+    <Content Include="UnitTest\.git\hooks\applypatch-msg.sample" />
+    <Content Include="UnitTest\.git\hooks\commit-msg.sample" />
+    <Content Include="UnitTest\.git\hooks\post-update.sample" />
+    <Content Include="UnitTest\.git\hooks\pre-applypatch.sample" />
+    <Content Include="UnitTest\.git\hooks\pre-commit.sample" />
+    <Content Include="UnitTest\.git\hooks\pre-push.sample" />
+    <Content Include="UnitTest\.git\hooks\pre-rebase.sample" />
+    <Content Include="UnitTest\.git\hooks\pre-receive.sample" />
+    <Content Include="UnitTest\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="UnitTest\.git\hooks\update.sample" />
+    <Content Include="UnitTest\.git\index" />
+    <Content Include="UnitTest\.git\info\exclude" />
+    <Content Include="UnitTest\.git\logs\HEAD" />
+    <Content Include="UnitTest\.git\logs\refs\heads\master" />
+    <Content Include="UnitTest\.git\logs\refs\remotes\origin\master" />
+    <Content Include="UnitTest\.git\objects\0f\fba5230152efbdb67dd3649d758161593d2e4d" />
+    <Content Include="UnitTest\.git\objects\18\d1a43555b5e0844c30141234989698481afe13" />
+    <Content Include="UnitTest\.git\objects\1f\f0c423042b46cb1d617b81efb715defbe8054d" />
+    <Content Include="UnitTest\.git\objects\1f\f33805928b412eca817226abb1cc8da8b50f75" />
+    <Content Include="UnitTest\.git\objects\33\a8a93c5dfe853ea532bbe4eacff758475294f0" />
+    <Content Include="UnitTest\.git\objects\3c\4efe206bd0e7230ad0ae8396a3c883c8207906" />
+    <Content Include="UnitTest\.git\objects\4e\c64e7cb51d80d922e71f8d94b04cc952492976" />
+    <Content Include="UnitTest\.git\objects\58\1bb9b9f5a67c591d29e808639e613bd7b7b9f2" />
+    <Content Include="UnitTest\.git\objects\58\e28f6ebd2d8c88ae68638b4017ea95e55f3ed6" />
+    <Content Include="UnitTest\.git\objects\67\00cb248ab1c8dcca60af6bfd45686e5d1725e4" />
+    <Content Include="UnitTest\.git\objects\6d\491ba4ce83b7fde8add5685942530a7502cc1a" />
+    <Content Include="UnitTest\.git\objects\83\9d1c03656c2d3b8c3e3f11106e50576c29f46e" />
+    <Content Include="UnitTest\.git\objects\85\4be913e4f1829be55e676508cfa3943e017a48" />
+    <Content Include="UnitTest\.git\objects\8a\5d45cb8b7a56c1b5913270af767290c786e2b7" />
+    <Content Include="UnitTest\.git\objects\91\a5605cb5c4f16756ad7fb668f446ad350829a7" />
+    <Content Include="UnitTest\.git\objects\91\e3470e1645e6e8d0de6fe9f6b242f366e9a393" />
+    <Content Include="UnitTest\.git\objects\9c\e8011ab7be83fda324d13d41eeb22073e37f7a" />
+    <Content Include="UnitTest\.git\objects\9e\c848d6a4da832da9a68a12ff82fb51235b08d9" />
+    <Content Include="UnitTest\.git\objects\b3\a798374ac61f69316a553c7beaac7b604888af" />
+    <Content Include="UnitTest\.git\objects\c2\a47f8e7a8d04e97eca70650805f538e35f62ea" />
+    <Content Include="UnitTest\.git\objects\d5\ad0b5f34ce86ae9ddd4cea54f7106b8456ecad" />
+    <Content Include="UnitTest\.git\objects\ee\ef63b6db9a568a64abc4c47842ef61fefdc4ce" />
+    <Content Include="UnitTest\.git\refs\heads\master" />
+    <Content Include="UnitTest\.git\refs\remotes\origin\master" />
+    <Content Include="UnitTest\.vs\EndCourse\v15\.suo" />
+    <Content Include="UnitTest\.vs\ProjectSettings.json" />
+    <Content Include="UnitTest\.vs\slnx.sqlite" />
+    <Content Include="UnitTest\.vs\VSWorkspaceState.json" />
+    <Content Include="UnitTest\obj\Debug\netcoreapp2.1\UnitTest.AssemblyInfoInputs.cache" />
+    <Content Include="UnitTest\obj\Debug\netcoreapp2.1\UnitTest.assets.cache" />
+    <Content Include="UnitTest\obj\Debug\netcoreapp2.1\UnitTest.csproj.CoreCompileInputs.cache" />
+    <Content Include="UnitTest\obj\Debug\netcoreapp2.1\UnitTest.csprojAssemblyReference.cache" />
+    <Content Include="UnitTest\obj\project.assets.json" />
+    <Content Include="UnitTest\obj\Release\netcoreapp2.1\UnitTest.AssemblyInfoInputs.cache" />
+    <Content Include="UnitTest\obj\Release\netcoreapp2.1\UnitTest.assets.cache" />
+    <Content Include="UnitTest\obj\Release\netcoreapp2.1\UnitTest.csproj.CoreCompileInputs.cache" />
+    <Content Include="UnitTest\obj\Release\netcoreapp2.1\UnitTest.csprojAssemblyReference.cache" />
+    <Content Include="UnitTest\obj\UnitTest.csproj.nuget.cache" />
+    <Content Include="UnitTest\obj\UnitTest.csproj.nuget.g.props" />
+    <Content Include="UnitTest\obj\UnitTest.csproj.nuget.g.targets" />
+    <Content Include="UnitTest\packages\Antlr.3.5.0.2\.signature.p7s" />
+    <Content Include="UnitTest\packages\Antlr.3.5.0.2\Antlr.3.5.0.2.nupkg" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\.signature.p7s" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\bootstrap.4.3.1.nupkg" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap-grid.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap-grid.min.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap-reboot.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap-reboot.min.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Content\bootstrap.min.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Scripts\bootstrap.bundle.js.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Scripts\bootstrap.js.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\contentFiles\Scripts\bootstrap.min.js.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap-grid.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap-grid.min.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap-reboot.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap-reboot.min.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Content\bootstrap.min.css.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Scripts\bootstrap.bundle.js.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Scripts\bootstrap.js.map" />
+    <Content Include="UnitTest\packages\bootstrap.4.3.1\content\Scripts\bootstrap.min.js.map" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\.signature.p7s" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\Content\Scripts\jquery-3.3.1.min.map" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\Content\Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\jQuery.3.3.1.nupkg" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\Tools\common.ps1" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\Tools\install.ps1" />
+    <Content Include="UnitTest\packages\jQuery.3.3.1\Tools\uninstall.ps1" />
+    <Content Include="UnitTest\packages\jQuery.Validation.1.17.0\.signature.p7s" />
+    <Content Include="UnitTest\packages\jQuery.Validation.1.17.0\jQuery.Validation.1.17.0.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.5.2.7\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.5.2.7\Content\Web.config.install.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.5.2.7\Content\Web.config.uninstall.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.5.2.7\Microsoft.AspNet.Mvc.5.2.7.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.ru.5.2.7\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Mvc.ru.5.2.7\Microsoft.AspNet.Mvc.ru.5.2.7.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.3.2.7\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.3.2.7\Microsoft.AspNet.Razor.3.2.7.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.ru.3.2.7\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Razor.ru.3.2.7\Microsoft.AspNet.Razor.ru.3.2.7.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Web.Optimization.1.1.3\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Web.Optimization.1.1.3\Microsoft.AspNet.Web.Optimization.1.1.3.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Web.Optimization.ru.1.1.3\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.Web.Optimization.ru.1.1.3\Microsoft.AspNet.Web.Optimization.ru.1.1.3.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\Content\Web.config.install.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\Content\Web.config.uninstall.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.3.2.7\Microsoft.AspNet.WebPages.3.2.7.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.AspNet.WebPages.ru.3.2.7\Microsoft.AspNet.WebPages.ru.3.2.7.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.install.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.uninstall.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.install.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.uninstall.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.install.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.uninstall.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.install.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.uninstall.xdt" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\install.ps1" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\uninstall.ps1" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe.config" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.rsp" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.rsp" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CSharp.Core.targets" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe.config" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.rsp" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe.config" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe.config" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.rsp" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe.config" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.rsp" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CSharp.Core.targets" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Managed.Core.targets" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe.config" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.rsp" />
+    <Content Include="UnitTest\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe.config" />
+    <Content Include="UnitTest\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\Microsoft.jQuery.Unobtrusive.Validation.3.2.11.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\Microsoft.Office.Interop.Word.15.0.4797.1003.nupkg" />
+    <Content Include="UnitTest\packages\Microsoft.Web.Infrastructure.1.0.0.0\.signature.p7s" />
+    <Content Include="UnitTest\packages\Microsoft.Web.Infrastructure.1.0.0.0\Microsoft.Web.Infrastructure.1.0.0.0.nupkg" />
+    <Content Include="UnitTest\packages\Modernizr.2.8.3\.signature.p7s" />
+    <Content Include="UnitTest\packages\Modernizr.2.8.3\Modernizr.2.8.3.nupkg" />
+    <Content Include="UnitTest\packages\Modernizr.2.8.3\Tools\common.ps1" />
+    <Content Include="UnitTest\packages\Modernizr.2.8.3\Tools\install.ps1" />
+    <Content Include="UnitTest\packages\Modernizr.2.8.3\Tools\uninstall.ps1" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\.signature.p7s" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\netcoreapp1.0\MSTest.TestAdapter.props" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\uap10.0\MSTest.TestAdapter.props" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\build\uap10.0\MSTest.TestAdapter.targets" />
+    <Content Include="UnitTest\packages\MSTest.TestAdapter.1.3.2\MSTest.TestAdapter.1.3.2.nupkg" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\.signature.p7s" />
+    <Content Include="UnitTest\packages\MSTest.TestFramework.1.3.2\MSTest.TestFramework.1.3.2.nupkg" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\.signature.p7s" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\LICENSE.md" />
+    <Content Include="UnitTest\packages\Newtonsoft.Json.12.0.1\Newtonsoft.Json.12.0.1.nupkg" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\.signature.p7s" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\netstandard2.0\NPOI.deps.json" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\netstandard2.0\NPOI.OOXML.deps.json" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\netstandard2.0\NPOI.OpenXml4Net.deps.json" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\lib\netstandard2.0\NPOI.OpenXmlFormats.deps.json" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\LICENSE" />
+    <Content Include="UnitTest\packages\NPOI.2.4.1\NPOI.2.4.1.nupkg" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\.signature.p7s" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\esm\popper-utils.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\esm\popper.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\esm\popper.min.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\popper-utils.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\popper-utils.min.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\popper.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\popper.min.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\README.md" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\umd\popper-utils.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\umd\popper.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\umd\popper.min.js.map" />
+    <Content Include="UnitTest\packages\popper.js.1.14.3\popper.js.1.14.3.nupkg" />
+    <Content Include="UnitTest\packages\SharpZipLib.1.1.0\.signature.p7s" />
+    <Content Include="UnitTest\packages\SharpZipLib.1.1.0\SharpZipLib.1.1.0.nupkg" />
+    <Content Include="UnitTest\packages\WebGrease.1.6.0\.signature.p7s" />
+    <Content Include="UnitTest\packages\WebGrease.1.6.0\WebGrease.1.6.0.nupkg" />
+    <Content Include="UnitTest\Test\obj\Debug\netcoreapp2.1\Test.AssemblyInfoInputs.cache" />
+    <Content Include="UnitTest\Test\obj\Debug\netcoreapp2.1\Test.assets.cache" />
+    <Content Include="UnitTest\Test\obj\Debug\netcoreapp2.1\Test.csproj.CoreCompileInputs.cache" />
+    <Content Include="UnitTest\Test\obj\Debug\netcoreapp2.1\Test.csprojAssemblyReference.cache" />
+    <Content Include="UnitTest\Test\obj\project.assets.json" />
+    <Content Include="UnitTest\Test\obj\Release\netcoreapp2.1\Test.AssemblyInfoInputs.cache" />
+    <Content Include="UnitTest\Test\obj\Release\netcoreapp2.1\Test.assets.cache" />
+    <Content Include="UnitTest\Test\obj\Release\netcoreapp2.1\Test.csproj.CoreCompileInputs.cache" />
+    <Content Include="UnitTest\Test\obj\Test.csproj.nuget.cache" />
+    <Content Include="UnitTest\Test\obj\Test.csproj.nuget.g.props" />
+    <Content Include="UnitTest\Test\obj\Test.csproj.nuget.g.targets" />
+    <Content Include="UnitTest\UnitTestProject\app.config" />
+    <Content Include="UnitTest\UnitTestProject\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="UnitTest\UnitTestProject\obj\Debug\UnitTestProject.csproj.CoreCompileInputs.cache" />
+    <Content Include="UnitTest\UnitTestProject\obj\Debug\UnitTestProject.csprojAssemblyReference.cache" />
+    <Content Include="UnitTest\UnitTestProject\obj\Release\UnitTestProject.csproj.CoreCompileInputs.cache" />
+    <Content Include="UnitTest\UnitTestProject\obj\Release\UnitTestProject.csprojAssemblyReference.cache" />
+    <None Include="UnitTest\UnitTestProject\packages.config" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\EndCourse.dll.config" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\UnitTests.deps.json" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\UnitTests.runtimeconfig.dev.json" />
+    <Content Include="UnitTest\UnitTests\bin\Debug\netcoreapp2.1\UnitTests.runtimeconfig.json" />
+    <Content Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.AssemblyInfoInputs.cache" />
+    <Content Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.assets.cache" />
+    <Content Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.csproj.CopyComplete" />
+    <Content Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.csproj.CoreCompileInputs.cache" />
+    <Content Include="UnitTest\UnitTests\obj\Debug\netcoreapp2.1\UnitTests.csprojAssemblyReference.cache" />
+    <Content Include="UnitTest\UnitTests\obj\project.assets.json" />
+    <Content Include="UnitTest\UnitTests\obj\Release\netcoreapp2.1\UnitTests.AssemblyInfoInputs.cache" />
+    <Content Include="UnitTest\UnitTests\obj\Release\netcoreapp2.1\UnitTests.assets.cache" />
+    <Content Include="UnitTest\UnitTests\obj\Release\netcoreapp2.1\UnitTests.csproj.CoreCompileInputs.cache" />
+    <Content Include="UnitTest\UnitTests\obj\Release\netcoreapp2.1\UnitTests.csprojAssemblyReference.cache" />
+    <Content Include="UnitTest\UnitTests\obj\UnitTests.csproj.nuget.cache" />
+    <Content Include="UnitTest\UnitTests\obj\UnitTests.csproj.nuget.g.props" />
+    <Content Include="UnitTest\UnitTests\obj\UnitTests.csproj.nuget.g.targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="UnitTest\.git\objects\info\" />
+    <Folder Include="UnitTest\.git\objects\pack\" />
+    <Folder Include="UnitTest\.git\refs\tags\" />
+    <Folder Include="UnitTest\bin\Debug\netcoreapp2.1\" />
+    <Folder Include="UnitTest\bin\Release\netcoreapp2.1\" />
+    <Folder Include="UnitTest\Test\bin\Debug\netcoreapp2.1\" />
+    <Folder Include="UnitTest\Test\bin\Release\netcoreapp2.1\" />
+    <Folder Include="UnitTest\UnitTestProject\bin\Debug\" />
+    <Folder Include="UnitTest\UnitTestProject\bin\Release\" />
+    <Folder Include="UnitTest\UnitTestProject\obj\Debug\TempPE\" />
+    <Folder Include="UnitTest\UnitTests\bin\Release\netcoreapp2.1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="UnitTest\packages\popper.js.1.14.3\content\Scripts\index.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8619</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8619/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
